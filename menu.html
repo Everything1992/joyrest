@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy - Pizza Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8; /* Light background */
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #d4af37; /* Gold color */
+        }
+
+        .pizza-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .pizza-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pizza-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .pizza-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 10px;
+        }
+
+        .pizza-item h2 {
+            margin-bottom: 5px;
+        }
+
+        .pizza-item p {
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .pizza-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Our Pizza Menu</h1>
+
+        <div class="pizza-grid">
+            <div class="pizza-item">
+                <img src="images/mozzarella_pizza.jpg" alt="Mozzarella and Cheese Pizza">
+                <h2>Mozzarella and Cheese</h2>
+                <p>Classic pizza with fresh mozzarella and a blend of cheeses.</p>
+                <p class="price">$14</p>
+            </div>
+
+            <div class="pizza-item">
+                <img src="images/pepperoni_basil_pizza.jpg" alt="Pepperoni and Basil Pizza">
+                <h2>Pepperoni & Basil</h2>
+                <p>Delicious pepperoni with fresh basil on a tomato base.</p>
+                <p class="price">$16</p>
+            </div>
+
+            <div class="pizza-item">
+                <img src="images/beer_pizza.jpg" alt="A meal for the big game">
+                <h2>Pizza w/ craft beer</h2>
+                <p>A great deal for the big game. Any large pizza of choice with a craft beer.</p>
+                <p class="price">$18</p>
+            </div>
+             </div>
+    </div>
+</body>
+</html>
