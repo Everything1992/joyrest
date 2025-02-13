@@ -1,15 +1,16 @@
 function createNavbar() {
-  const navbarHTML = `
+    const navbarHTML = `
         <header class="navbar">
             <nav>
-                <a href="joyrest.html" class="logo">Joy</a>
+                <a href="/" class="logo">Joy</a>
                 <button class="menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 <ul class="nav-links">
-                    <li><a href="menu.html">Menu</a></li>
+                <li><a href="/">Home</a></li>
+                 <li><a href="menu.html">Menu</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#location">Location</a></li>
                  </ul>
@@ -17,24 +18,24 @@ function createNavbar() {
         </header>
     `;
 
-  document.body.insertAdjacentHTML("afterbegin", navbarHTML);
+    document.body.insertAdjacentHTML("afterbegin", navbarHTML);
 
-  const styleElement = document.createElement("style");
-  styleElement.textContent = navBarCSS;
-  document.head.appendChild(styleElement);
+    const styleElement = document.createElement("style");
+    styleElement.textContent = navBarCSS;
+    document.head.appendChild(styleElement);
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    menuToggle.classList.toggle("active");
-  });
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+    });
 
-  window.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    navbar.classList.toggle("scrolled", window.scrollY > 50);
-  });
+    window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
 }
 
 const navBarCSS = `
