@@ -16,64 +16,73 @@
         margin: 0;
         line-height: 1.6;
         color: #333;
-        background-color: #f8f8f8; /* Light background */
+        background-color: #f8f8f8;
       }
-
       .container {
         max-width: 960px;
         margin: 20px auto;
         padding: 20px;
       }
-
       h1 {
         font-family: "Playfair Display", serif;
         font-size: 2.5em;
         text-align: center;
-        margin-bottom: 20px;
-        color: #d4af37; /* Gold color */
+        margin-bottom: 30px;
+        color: #d4af37;
       }
-
       .pizza-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
       }
-
       .pizza-item {
         background-color: white;
-        border-radius: 8px;
+        border-radius: 12px;
         padding: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-
       .pizza-item:hover {
         transform: translateY(-5px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       }
-
       .pizza-item img {
         width: 100%;
         height: auto;
-        border-radius: 8px 8px 0 0;
-        margin-bottom: 10px;
+        border-radius: 12px 12px 0 0;
+        margin-bottom: 15px;
       }
-
       .pizza-item h2 {
-        margin-bottom: 5px;
-      }
-
-      .pizza-item p {
-        color: #777;
         margin-bottom: 10px;
+        color: #222;
       }
-
+      .pizza-item p {
+        color: #555;
+        margin-bottom: 15px;
+      }
       .price {
         font-weight: bold;
         color: #d4af37;
       }
-
-      /* Responsive Design */
+      select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: #d4af37;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #b28f2c;
+      }
       @media (max-width: 768px) {
         .pizza-grid {
           grid-template-columns: 1fr;
@@ -83,63 +92,89 @@
   </head>
   <body>
     <div class="container">
-      <h1>Menu Continued</h1>
-
+      <h1>Joy - Pizza Menu Continued</h1>
       <div class="pizza-grid">
         <div class="pizza-item">
-          <img
-            src="imagesmozzarellawbeer.jpg"
-            alt="Mozzarella and Cheese Pizza"
-          />
+          <img src="images/mozzarellawbeer.jpg" alt="Mozzarella and Cheese Pizza with Craft Beer" />
           <h2>Mozzarella and Cheese</h2>
-          <p>Classic pizza with fresh mozzarella and a blend of cheeses.Comes with choice of crasft beer</p>
+          <p>Classic pizza with fresh mozzarella and a blend of cheeses. Comes with a craft beer of your choice.</p>
           <p class="price">$14</p>
         </div>
-
         <div class="pizza-item">
-          <img
-            src="imagespepperoni_basil_pizza.jpg.jpg"
-            alt="Pepperoni and Basil Pizza"
-          />
+          <img src="images/pepperoni_basil_pizza.jpg" alt="Pepperoni and Basil Pizza" />
           <h2>Pepperoni & Basil</h2>
           <p>Delicious pepperoni with fresh basil on a tomato base.</p>
           <p class="price">$15</p>
         </div>
-
         <div class="pizza-item">
-          <img src="imagesbeer_pizza.jpg" alt="A meal for the big game" />
-          <h2>Pizza w/ craft beer</h2>
-          <p>
-            A great deal for the big game. Any large pizza of choice with a
-            craft beer.
-          </p>
+          <img src="images/beer_pizza.jpg" alt="Pizza with Craft Beer" />
+          <h2>Pizza w/ Craft Beer</h2>
+          <p>A perfect pairing for the big game: any large pizza of choice with a craft beer.</p>
           <p class="price">$18</p>
         </div>
-
         <div class="pizza-item">
-          <img src="imagescauliflowerthincrust.jpg" alt="Cauliflower Crust Pizza" />
+          <img src="images/cauliflowerthincrust.jpg" alt="Cauliflower Crust Pizza" />
           <h2>Cauliflower Crust Pizza</h2>
-          <p>Delicious low-carb pizza with a crispy cauliflower crust.</p>
+          <p>Low-carb pizza with a crispy cauliflower crust and your choice of toppings.</p>
           <p class="price">$20</p>
         </div>
-
         <div class="pizza-item">
-          <img src="imageskidspizzafriesvegan.jpg" alt="Kids Vegan Pizza" />
+          <img src="images/kidspizzafriesvegan.jpg" alt="Kids Vegan Pizza with Fries" />
           <h2>Kids Vegan Pizza</h2>
-          <p>Perfectly sized pizzas for our younger guests. Comes with fries</p>
+          <p>Perfectly sized pizzas for our younger guests, served with fries.</p>
           <p class="price">$10</p>
         </div>
-
         <div class="pizza-item">
-          <img src="imageskidsburgerfries.jpg" alt="Kids Combo" />
-          <h2> Kids Combo </h2>
-          <p>Kids chicken tenders, small burgers, and french fries.</p>
+          <img src="images/kidsburgerfries.jpg" alt="Kids Combo Meal" />
+          <h2>Kids Combo</h2>
+          <p>Kids chicken tenders, small burgers, and crispy fries.</p>
           <p class="price">$13</p>
+        </div>
+        <div class="pizza-item">
+          <img src="images/build_your_own_pizza.jpg" alt="Build Your Own Pizza" />
+          <h2>Build Your Own Pizza</h2>
+          <p>Choose your crust, sauce, and toppings to create your perfect pizza.</p>
+          <label for="crust">Crust:</label>
+          <select id="crust" name="crust">
+            <option value="thin">Thin Crust</option>
+            <option value="thick">Thick Crust</option>
+            <option value="cauliflower">Cauliflower Crust</option>
+            <option value="gluten_free">Gluten-Free Crust</option>
+          </select>
+          <label for="toppings">Toppings:</label>
+          <select id="toppings" name="toppings" multiple>
+            <option value="pepperoni">Pepperoni</option>
+            <option value="mushrooms">Mushrooms</option>
+            <option value="olives">Olives</option>
+            <option value="basil">Fresh Basil</option>
+            <option value="jalapenos">Jalapeños</option>
+            <option value="extra_cheese">Extra Cheese</option>
+          </select>
+          <p class="price">Starting at $12</p>
+        </div>
+        <div class="pizza-item">
+          <img src="images/drink_options.jpg" alt="Drink Options" />
+          <h2>Drink Options</h2>
+          <p>Select from our variety of drink options below:</p>
+          <label for="drinkSelection">Choose a drink:</label>
+          <select id="drinkSelection" name="drinkSelection">
+            <option value="cola">Cola</option>
+            <option value="lemonade">Lemonade</option>
+            <option value="iced_tea">Iced Tea</option>
+            <option value="craft_beer">Craft Beer (21+)</option>
+            <option value="wine">Wine (21+)</option>
+            <option value="non_alcoholic">Non-Alcoholic Drinks</option>
+          </select>
+          <button onclick="confirmDrink()">Confirm Drink</button>
+          <p class="price">$3-$10 depending on selection</p>
         </div>
       </div>
     </div>
+    <script>
+      function confirmDrink() {
+        const drink = document.getElementById('drinkSelection').value;
+        alert(`You selected: ${drink.replace('_', ' ')}`);
+      }
+    </script>
   </body>
 </html>
-<script src="components/navBar/navBar.js"></script>
-
-    
