@@ -12,18 +12,24 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.0.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+
+    <!-- link to call in icons used in footer section!-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+
     <style>
       /* General Styles */
-      body {
+      * {
         font-family: "Poppins", sans-serif;
         margin: 0;
+        padding: 0;
         line-height: 1.6;
-        color: #333;
       }
 
       .section {
@@ -58,6 +64,8 @@
       .button:hover {
         background-color: #c0941a;
       }
+
+      /* nav CSS end */
 
       /* Header Styles */
       header {
@@ -161,12 +169,12 @@
       }
 
       /* Footer Styles */
-      footer {
+      /* footer {
         background-color: #333;
         color: white;
         text-align: center;
         padding: 20px 0;
-      }
+      } */
 
       /* Responsive Design */
       @media (max-width: 768px) {
@@ -195,7 +203,7 @@
       <div class="menu-grid">
         <div class="menu-item">
           <img
-            src="imagesham&mushroom.jpg"
+            src="images/ham&mushroom.jpg"
             alt="Pizza with ham, mozzarella, and mushrooms"
           />
           <h3>Ham & Mushroom Pizza</h3>
@@ -204,7 +212,7 @@
         </div>
         <div class="menu-item">
           <img
-            src="imagesmozzarella_pizza.jpg - Copy.jpg"
+            src="images/mozzarella_pizza.jpg - Copy.jpg"
             alt="Mozzarella Cheese Pizza w/wine cheese and grapes"
           />
           <h3>Pizza & Wine</h3>
@@ -213,7 +221,7 @@
         </div>
         <div class="menu-item">
           <img
-            src="imagespepperoni_basil_pizza.jpg.jpg"
+            src="images/pepperoni_basil_pizza.jpg.jpg"
             alt="Pepperoni, bazil, and cherry tomatoes"
           />
           <h3>Pepperoni Pizza</h3>
@@ -232,7 +240,7 @@
       <div class="menu-grid">
         <div class="menu-item">
           <img
-            src="imagescherrytomatopasta.jpg"
+            src="images/cherrytomatopasta.jpg"
             alt="Pasta with cherry tomatoes, basil, in white wine sauce"
           />
           <h3>Pasta & Cherry Tomatoes</h3>
@@ -241,7 +249,7 @@
         </div>
         <div class="menu-item">
           <img
-            src="imageschickenfettucini.jpg"
+            src="images/chickenfettucini.jpg"
             alt="Chicken Fettucini"
           />
           <h3>Chicken Fettucini</h3>
@@ -250,7 +258,7 @@
         </div>
         <div class="menu-item">
           <img
-            src="imagesshrimppasta.jpg"
+            src="images/shrimppasta.jpg"
             alt="Shrimp Pasta"
           />
           <h3>Shrimp Pasta</h3>
@@ -260,6 +268,44 @@
       </div>
     </section>
     <div id="contact-section"></div>
+
+
+    <!-- -------foooter HTML ------ -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Contact US</h4>
+          <p>1125 Valencia St, San Francisco, CA 94110</p>
+          <p>phone: 415-920-6000</p>
+          <p>Email: joyrest@ccsf.com</p>
+        </div>
+        <div class="footer-section">
+          <h4>Hours of Operation</h4>
+          <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
+          <p>Saturday: 9:00 AM - 7:00 PM</p>
+          <p>Sunday: CLOSED</p>
+        </div>
+        <div class="footer-section">
+          <h4>Map Direction</h4>
+          <a href="https://www.google.com/maps/place/City+College+of+San+Francisco+-+Mission+Center/data=!4m2!3m1!1s0x0:0x25776bde595dca89?sa=X&ved=1t:2428&ictx=111" target="_blank">Google Map</a>
+
+        </div>
+        <div class="footer-section">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="menu.html">FOOD MENU</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Follow US</h4>
+          <div class="socials">
+            <i class="fab fa-facebook-square"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter-square"></i>
+        </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
 <script src="components/navBar/navBar.js"></script>

@@ -1,3 +1,4 @@
+// generates Nav HTML
 function createNavbar() {
   const navbarHTML = `
         <header class="navbar">
@@ -9,7 +10,9 @@ function createNavbar() {
                     <span></span>
                 </button>
                 <ul class="nav-links">
+                    <li><a href="joyrest.html">Home</a></li>
                     <li><a href="menu.html">Menu</a></li>
+                    <li><a href="#">Contact</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#location">Location</a></li>
                  </ul>
@@ -17,6 +20,7 @@ function createNavbar() {
         </header>
     `;
 
+// inserts navbarHTML as first child of body
   document.body.insertAdjacentHTML("afterbegin", navbarHTML);
 
   const styleElement = document.createElement("style");
@@ -37,6 +41,7 @@ function createNavbar() {
   });
 }
 
+// Nav bar CSS
 const navBarCSS = `
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
