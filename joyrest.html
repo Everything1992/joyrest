@@ -104,6 +104,7 @@
         padding: 20px;
         border-radius: 8px;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
       }
 
       .menu-item img {
@@ -168,6 +169,30 @@
         padding: 20px 0;
       }
 
+      /* Overlay for items with a price */
+      .add-overlay {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 215, 0, 0.9);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        display: none; /* Hidden by default */
+      }
+
+      .menu-item .price {
+        display: block;
+        margin-top: 10px;
+      }
+
+      /* Show overlay if item has price */
+      .menu-item .add-overlay {
+        display: block;
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
         .menu-grid {
@@ -199,8 +224,9 @@
             alt="Pizza with ham, mozzarella, and mushrooms"
           />
           <h3>Ham & Mushroom Pizza</h3>
-          <p class="description">Tomato sauce, mozzarella, ham, mushrooms w/ choice of craft beer </p>
+          <p class="description">Tomato sauce, mozzarella, ham, mushrooms w/ choice of craft beer</p>
           <p class="price">$22</p>
+          <div class="add-overlay">+ Add</div>
         </div>
         <div class="menu-item">
           <img
@@ -210,20 +236,22 @@
           <h3>Pizza & Wine</h3>
           <p class="description">Mozzarella Cheese Pizza w/choice of wine cheese and grapes</p>
           <p class="price">$30</p>
+          <div class="add-overlay">+ Add</div>
         </div>
         <div class="menu-item">
           <img
             src="imagespepperoni_basil_pizza.jpg.jpg"
-            alt="Pepperoni, bazil, and cherry tomatoes"
+            alt="Pepperoni, basil, and cherry tomatoes"
           />
           <h3>Pepperoni Pizza</h3>
-          <p class="description">Pepperoni, bazil, and cherry tomatoes</p>
+          <p class="description">Pepperoni, basil, and cherry tomatoes</p>
           <p class="price">$15</p>
+          <div class="add-overlay">+ Add</div>
         </div>
       </div>
     </section>
-    
-     <!-- Pasta Dishes Section -->
+
+    <!-- Pasta Dishes Section -->
     <section id="pasta" class="section">
       <div class="section-header">
         <h2>Pasta Dishes</h2>
@@ -236,8 +264,9 @@
             alt="Pasta with cherry tomatoes, basil, in white wine sauce"
           />
           <h3>Pasta & Cherry Tomatoes</h3>
-          <p class="description">Classic spaghetti with white wine sauce, cherry tomatoes,basil Parmesan cheese</p>
+          <p class="description">Classic spaghetti with white wine sauce, cherry tomatoes, basil Parmesan cheese</p>
           <p class="price">$18</p>
+          <div class="add-overlay">+ Add</div>
         </div>
         <div class="menu-item">
           <img
@@ -247,6 +276,7 @@
           <h3>Chicken Fettucini</h3>
           <p class="description">Chicken fettucini with basil and Alfredo garlic sauce.</p>
           <p class="price">$20</p>
+          <div class="add-overlay">+ Add</div>
         </div>
         <div class="menu-item">
           <img
@@ -254,34 +284,36 @@
             alt="Shrimp Pasta"
           />
           <h3>Shrimp Pasta</h3>
-          <p class="description">Shrimp pasta with basil, parmessan cheese and garlic sauce</p>
-         <p class="price">$27</p>
+          <p class="description">Shrimp pasta with basil, Parmesan cheese, and garlic sauce</p>
+          <p class="price">$27</p>
+          <div class="add-overlay">+ Add</div>
         </div>
       </div>
     </section>
+
     <div id="contact-section"></div>
+    
+    <!-- Payment Methods Section -->
+    <section id="payment-methods" class="section">
+      <div class="section-header">
+        <h2>Payment Methods</h2>
+        <p>We accept the following payment methods:</p>
+      </div>
+      <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+        <i class="fa-brands fa-cc-visa" style="font-size: 2.5em; color: #1A1F71;"></i>
+        <i class="fa-brands fa-cc-mastercard" style="font-size: 2.5em; color: #EB001B;"></i>
+        <i class="fa-brands fa-cc-amex" style="font-size: 2.5em; color: #0078C1;"></i>
+        <img src="imagesebt.png.jpg" alt="EBT Accepted" style="height: 40px;">
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Joy - A Taste of Italy. All rights reserved.</p>
+    </footer>
+
+    <script src="components/navBar/navBar.js"></script>
+    <script src="components/form/form.js"></script>
   </body>
 </html>
-<!-- Payment Methods Section -->
-<section id="payment-methods" class="section">
-  <div class="section-header">
-    <h2>Payment Methods</h2>
-    <p>We accept the following payment methods:</p>
-  </div>
-  <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
-    <i class="fa-brands fa-cc-visa" style="font-size: 2.5em; color: #1A1F71;"></i>
-    <i class="fa-brands fa-cc-mastercard" style="font-size: 2.5em; color: #EB001B;"></i>
-    <i class="fa-brands fa-cc-amex" style="font-size: 2.5em; color: #0078C1;"></i>
-    <img src="imagesebt.png.jpg" alt="EBT Accepted" style="height: 40px;">
-  </div>
-</section>
 
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Joy - A Taste of Italy. All rights reserved.</p>
-</footer>
-
-
-<script src="components/navBar/navBar.js"></script>
-
-<script src="components/form/form.js"></script>
