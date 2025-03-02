@@ -49,12 +49,12 @@
             margin-bottom: 30px;
             color: #d4af37;
         }
-        .pizza-grid {
+        .pizza-grid, .dessert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
-        .pizza-item {
+        .pizza-item, .dessert-item {
             background-color: white;
             border-radius: 12px;
             padding: 20px;
@@ -62,11 +62,11 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
-        .pizza-item:hover {
+        .pizza-item:hover, .dessert-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
-        .pizza-item img {
+        .pizza-item img, .dessert-item img {
             width: 100%;
             height: auto;
             border-radius: 12px 12px 0 0;
@@ -83,11 +83,11 @@
             cursor: pointer;
             font-weight: bold;
         }
-        .pizza-item h2 {
+        .pizza-item h2, .dessert-item h2 {
             margin-bottom: 10px;
             color: #222;
         }
-        .pizza-item p {
+        .pizza-item p, .dessert-item p {
             color: #555;
             margin-bottom: 15px;
         }
@@ -115,9 +115,15 @@
             background-color: #b28f2c;
         }
         @media (max-width: 768px) {
-            .pizza-grid {
+            .pizza-grid, .dessert-grid {
                 grid-template-columns: 1fr;
             }
+        }
+        /* Additional Space between sections */
+        .section-break {
+            margin: 40px 0; /* Space between sections */
+            height: 1px;
+            background-color: #ccc;
         }
     </style>
 </head>
@@ -133,6 +139,7 @@
     <div class="container">
         <h1>Joy - Pizza Menu Continued</h1>
         <div class="pizza-grid">
+            <!-- Pizza Items -->
             <div class="pizza-item">
                 <div class="add-overlay">+ Add</div>
                 <img src="imagesmozzarellawbeer.jpg" alt="Mozzarella and Cheese Pizza with Craft Beer" />
@@ -176,7 +183,7 @@
                 <p class="price">$13</p>
             </div>
             <div class="pizza-item">
-            	<div class="add-overlay">+Add</div>
+                <div class="add-overlay">+ Add</div>
                 <img src="imagesham&mushroom.jpg" alt="Build Your Own Pizza" />
                 <h2>Build Your Own Pizza</h2>
                 <p>Choose your crust, sauce, and toppings to create your perfect pizza.</p>
@@ -191,4 +198,32 @@
                 <select id="toppings" name="toppings" multiple>
                     <option value="pepperoni">Pepperoni</option>
                     <option value="mushrooms">Mushrooms</option>
-                    <option value="olives">Olives
+                    <option value="olives">Olives</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Section Break -->
+        <div class="section-break"></div>
+  <!-- Desserts Section -->
+        <h1>Delicious Desserts</h1>
+        <div class="dessert-grid">
+            <div class="dessert-item">
+                <div class="add-overlay">+ Add</div>
+                <img src="images.jpg" alt="Apple Crisp w/ Ice Cream" />
+                <h2>Apple Crisp</h2>
+                <p>Apple Crisp with French vanilla ice cream.</p>
+                <p class="price">$8</p>
+            </div>
+            <div class="dessert-item">
+                <div class="add-overlay">+ Add</div>
+                <img src="images.jpg" alt="Fruit Tart" />
+                <h2>Fruit Tart</h2>
+                <p>Classic fruit tart with cinnamon, fresh fruit and powdered sugar.</p>
+                <p class="price">$8</p>
+            </div>
+            <!-- More desserts go here -->
+        </div>
+    </div>
+</body>
+</html>
