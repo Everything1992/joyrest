@@ -125,6 +125,35 @@
             height: 1px;
             background-color: #ccc;
         }
+        /* Cart styles */
+        .cart-container {
+            background-color: white;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            margin-bottom: 10px;
+        }
+        .remove-btn {
+            color: red;
+            cursor: pointer;
+        }
+        .checkout-button {
+            background-color: #d4af37;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .checkout-button:hover {
+            background-color: #b28f2c;
+        }
     </style>
 </head>
 <body>
@@ -140,49 +169,49 @@
         <h1>Joy - Pizza Menu Continued</h1>
         <div class="pizza-grid">
             <!-- Pizza Items -->
-            <div class="pizza-item">
+            <div class="pizza-item" data-name="Mozzarella and Cheese" data-price="14">
                 <div class="add-overlay">+ Add</div>
                 <img src="imagesmozzarellawbeer.jpg" alt="Mozzarella and Cheese Pizza with Craft Beer" />
                 <h2>Mozzarella and Cheese</h2>
                 <p>Classic pizza with fresh mozzarella and a blend of cheeses. Comes with a craft beer of your choice.</p>
                 <p class="price">$14</p>
             </div>
-            <div class="pizza-item">
+            <div class="pizza-item" data-name="Pepperoni & Basil" data-price="15">
                 <div class="add-overlay">+ Add</div>
                 <img src="imagespepperoni_basil_pizza.jpg.jpg" alt="Pepperoni and Basil Pizza" />
                 <h2>Pepperoni & Basil</h2>
                 <p>Delicious pepperoni with fresh basil on a tomato base.</p>
                 <p class="price">$15</p>
             </div>
-            <div class="pizza-item">
+            <div class="pizza-item" data-name="Pizza w/ Craft Beer" data-price="18">
                 <div class="add-overlay">+ Add</div>
                 <img src="imagesbeer_pizza.jpg" alt="Pizza with Craft Beer" />
                 <h2>Pizza w/ Craft Beer</h2>
                 <p>A perfect pairing for the big game: any large pizza of choice with a craft beer.</p>
                 <p class="price">$18</p>
             </div>
-            <div class="pizza-item">
+            <div class="pizza-item" data-name="Cauliflower Crust Pizza" data-price="20">
                 <div class="add-overlay">+ Add</div>
                 <img src="imagescauliflowerthincrust.jpg" alt="Cauliflower Crust Pizza" />
                 <h2>Cauliflower Crust Pizza</h2>
                 <p>Low-carb pizza with a crispy cauliflower crust and your choice of toppings.</p>
                 <p class="price">$20</p>
             </div>
-            <div class="pizza-item">
+            <div class="pizza-item" data-name="Kids Vegan Pizza" data-price="10">
                 <div class="add-overlay">+ Add</div>
                 <img src="imageskidspizzafriesvegan.jpg" alt="Kids Vegan Pizza with Fries" />
                 <h2>Kids Vegan Pizza</h2>
                 <p>Perfectly sized pizzas for our younger guests, served with fries.</p>
                 <p class="price">$10</p>
             </div>
-            <div class="pizza-item">
+            <div class="pizza-item" data-name="Kids Combo" data-price="13">
                 <div class="add-overlay">+ Add</div>
                 <img src="imageskidsburgerfries.jpg" alt="Kids Combo Meal" />
                 <h2>Kids Combo</h2>
                 <p>Kids chicken tenders, small burgers, and crispy fries.</p>
                 <p class="price">$13</p>
             </div>
-            <div class="pizza-item">
+            <div class="pizza-item" data-name="Build Your Own Pizza" data-price="15">
                 <div class="add-overlay">+ Add</div>
                 <img src="imagesham&mushroom.jpg" alt="Build Your Own Pizza" />
                 <h2>Build Your Own Pizza</h2>
@@ -201,9 +230,8 @@
                     <option value="olives">Olives</option>
                 </select>
             </div>
-        </div>
-
-        <!-- Section Break -->
+        
+ <!-- Section Break -->
         <div class="section-break"></div>
   <!-- Desserts Section -->
         <h1>Delicious Desserts</h1>
@@ -215,6 +243,7 @@
                 <p>Apple Crisp with French vanilla ice cream.</p>
                 <p class="price">$8</p>
             </div>
+            
             <div class="dessert-item">
                 <div class="add-overlay">+ Add</div>
                 <img src="images.tart.jpg" alt="Fruit Tart" />
@@ -222,8 +251,73 @@
                 <p>Classic fruit tart with cinnamon, fresh fruit and powdered sugar.</p>
                 <p class="price">$8</p>
             </div>
-            <!-- More desserts go here -->
+        <!-- Cart Section -->
+        <div class="cart-container">
+            <h2>Your Cart</h2>
+            <div class="cart-items">
+                <!-- Items will be added here dynamically -->
+            </div>
+            <div class="cart-total">
+                Total: $0
+            </div>
+            <button class="checkout-button">Proceed to Checkout</button>
         </div>
+
     </div>
+
+    <script>
+    let cart = [];
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cartTotal = document.querySelector('.cart-total');
+
+    // Function to update the cart display
+    function updateCart() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            // Use backticks for template literals
+            cartItem.innerHTML = `
+                <span><strong>${item.name}</strong> - $${item.price}</span>
+                <span class="remove-btn" data-index="${index}">Remove</span>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+            total += item.price;
+        });
+
+        cartTotal.textContent = `Total: $${total.toFixed(2)}`; // Display total with two decimal places
+    }
+
+    // Function to handle adding an item to the cart
+    function addToCart(event) {
+        const item = event.target.closest('.pizza-item, .dessert-item'); // Target both pizza and dessert items
+        if (!item) return;
+
+        const name = item.querySelector('h2').textContent; // Get name of the item
+        const price = parseFloat(item.querySelector('.price').textContent.replace('$', '')); // Get price of the item
+
+        cart.push({ name, price });
+        updateCart();
+    }
+
+    // Function to handle removing an item from the cart
+    function removeFromCart(event) {
+        const index = event.target.getAttribute('data-index');
+        if (index !== null) {
+            cart.splice(index, 1); // Remove the item from the cart based on index
+            updateCart();
+        }
+    }
+
+    // Add event listener for "Add" buttons for both pizza and dessert items
+    document.querySelectorAll('.pizza-item .add-overlay, .dessert-item .add-overlay').forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
+
+    // Add event listener for "Remove" buttons in cart
+    cartItemsContainer.addEventListener('click', removeFromCart);
+</script>
 </body>
 </html>
