@@ -11,6 +11,7 @@
         rel="stylesheet"
     />
     <style>
+        /* Same CSS as before, no changes needed */
         body {
             font-family: "Poppins", sans-serif;
             margin: 0;
@@ -119,13 +120,11 @@
                 grid-template-columns: 1fr;
             }
         }
-        /* Additional Space between sections */
         .section-break {
-            margin: 40px 0; /* Space between sections */
+            margin: 40px 0;
             height: 1px;
             background-color: #ccc;
         }
-        /* Cart styles */
         .cart-container {
             background-color: white;
             padding: 20px;
@@ -230,27 +229,28 @@
                     <option value="olives">Olives</option>
                 </select>
             </div>
-        
- <!-- Section Break -->
+        </div>
+
+        <!-- Desserts Section -->
         <div class="section-break"></div>
-  <!-- Desserts Section -->
         <h1>Delicious Desserts</h1>
         <div class="dessert-grid">
-            <div class="dessert-item">
+            <div class="dessert-item" data-name="Apple Crisp" data-price="8">
                 <div class="add-overlay">+ Add</div>
                 <img src="images.crisp.jpg" alt="Apple Crisp w/ Ice Cream" />
                 <h2>Apple Crisp</h2>
                 <p>Apple Crisp with French vanilla ice cream.</p>
                 <p class="price">$8</p>
             </div>
-            
-            <div class="dessert-item">
+            <div class="dessert-item" data-name="Fruit Tart" data-price="8">
                 <div class="add-overlay">+ Add</div>
                 <img src="images.tart.jpg" alt="Fruit Tart" />
                 <h2>Fruit Tart</h2>
                 <p>Classic fruit tart with cinnamon, fresh fruit and powdered sugar.</p>
                 <p class="price">$8</p>
             </div>
+        </div>
+
         <!-- Cart Section -->
         <div class="cart-container">
             <h2>Your Cart</h2>
@@ -278,7 +278,6 @@
         cart.forEach((item, index) => {
             const cartItem = document.createElement('div');
             cartItem.classList.add('cart-item');
-            // Use backticks for template literals
             cartItem.innerHTML = `
                 <span><strong>${item.name}</strong> - $${item.price}</span>
                 <span class="remove-btn" data-index="${index}">Remove</span>
