@@ -133,42 +133,6 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
-      .location-content iframe {
-        width: 100%;
-        max-width: 600px;
-        margin: 20px auto 0;
-      }
-
-      .social-icons {
-        list-style: none;
-        padding: 0;
-        margin: 20px 0;
-        display: flex;
-        justify-content: center;
-      }
-
-      .social-icons li {
-        margin: 0 10px;
-      }
-
-      .social-icons a {
-        color: #333;
-        font-size: 1.5em;
-        transition: color 0.3s ease;
-      }
-
-      .social-icons a:hover {
-        color: #d4af37;
-      }
-
-      /* Footer Styles */
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-      }
-
       /* Overlay for items with a price */
       .add-overlay {
         position: absolute;
@@ -193,11 +157,49 @@
         display: block;
       }
 
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .menu-grid {
-          grid-template-columns: 1fr;
-        }
+      /* Cart Styles */
+      #cart-section {
+        background-color: #f8f8f8;
+        padding: 40px;
+        display: none; /* Hidden by default */
+      }
+
+      #cart-items {
+        margin-bottom: 20px;
+      }
+
+      .total-price {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+
+      #checkout-btn, #clear-cart-btn {
+        margin-top: 20px;
+      }
+
+      /* Style for individual cart items */
+      #cart-items .menu-item {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      #cart-items .menu-item img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+      }
+
+      #cart-items .menu-item h3 {
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      #cart-items .menu-item .price {
+        font-weight: bold;
       }
     </style>
   </head>
@@ -291,8 +293,22 @@
       </div>
     </section>
 
+    <!-- Cart Section -->
+    <section id="cart-section" class="section" style="display: none;">
+      <div class="section-header">
+        <h2>Your Cart</h2>
+        <p>Review your order before checkout</p>
+      </div>
+      <div id="cart-items" class="menu-grid"></div>
+      <div class="total-price">
+        <strong>Total: $<span id="cart-total">0.00</span></strong>
+      </div>
+      <button id="checkout-btn" class="button">Proceed to Checkout</button>
+      <button id="clear-cart-btn" class="button">Clear Cart</button>
+    </section>
+
     <div id="contact-section"></div>
-    
+
     <!-- Payment Methods Section -->
     <section id="payment-methods" class="section">
       <div class="section-header">
@@ -312,8 +328,79 @@
       <p>&copy; 2025 Joy - A Taste of Italy. All rights reserved.</p>
     </footer>
 
+    <script>
+      // Cart Initialization
+      let cart = [];
+
+      // Add an item to the cart
+      function addToCart(itemName, itemPrice, itemImage) {
+        let itemIndex = cart.findIndex(item => item.name === itemName);
+
+        if (itemIndex === -1) {
+          cart.push({
+            name: itemName,
+            price: itemPrice,
+            image: itemImage,
+            quantity: 1
+          });
+        } else {
+          cart[itemIndex].quantity += 1;
+        }
+
+        updateCartDisplay();
+      }
+
+      // Update the cart display
+      function updateCartDisplay() {
+        const cartSection = document.getElementById('cart-section');
+        const cartItemsDiv = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        
+        cartItemsDiv.innerHTML = ""; // Clear existing items
+
+        let total = 0;
+
+        cart.forEach(item => {
+          total += item.price * item.quantity;
+
+          const itemDiv = document.createElement('div');
+          itemDiv.classList.add('menu-item');
+          itemDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" />
+            <h3>${item.name}</h3>
+            <p class="description">x${item.quantity}</p>
+            <p class="price">$${item.price * item.quantity}</p>
+          `;
+          cartItemsDiv.appendChild(itemDiv);
+        });
+
+        cartTotal.textContent = total.toFixed(2);
+        cartSection.style.display = cart.length > 0 ? 'block' : 'none';
+      }
+
+      // Clear the cart
+      function clearCart() {
+        cart = [];
+        updateCartDisplay();
+      }
+
+      // Add event listeners to buttons
+      document.getElementById('clear-cart-btn').addEventListener('click', clearCart);
+
+      // Handle adding items to cart when the "Add" button is clicked
+      document.querySelectorAll('.add-overlay').forEach(button => {
+        button.addEventListener('click', function() {
+          const itemElement = button.closest('.menu-item');
+          const itemName = itemElement.querySelector('h3').textContent;
+          const itemPrice = parseFloat(itemElement.querySelector('.price').textContent.replace('$', ''));
+          const itemImage = itemElement.querySelector('img').src;
+
+          addToCart(itemName, itemPrice, itemImage);
+        });
+      });
+    </script>
+
     <script src="components/navBar/navBar.js"></script>
     <script src="components/form/form.js"></script>
   </body>
 </html>
-
