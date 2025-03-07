@@ -210,6 +210,7 @@
                 <p>Kids chicken tenders, small burgers, and crispy fries.</p>
                 <p class="price">$13</p>
             </div>
+            <!-- Build Your Own Pizza -->
             <div class="pizza-item" data-name="Build Your Own Pizza" data-price="15">
                 <div class="add-overlay">+ Add</div>
                 <img src="imagesham&mushroom.jpg" alt="Build Your Own Pizza" />
@@ -227,7 +228,11 @@
                     <option value="pepperoni">Pepperoni</option>
                     <option value="mushrooms">Mushrooms</option>
                     <option value="olives">Olives</option>
+                    <option value="pineapple">Pineapple</option>
+                    <option value="sausage">Sausage</option>
+                    <option value="pesto">Pesto</option>
                 </select>
+                <button class="add-custom-pizza">Add Custom Pizza</button>
             </div>
         </div>
 
@@ -310,10 +315,24 @@
         }
     }
 
+    // Function to handle adding a custom pizza
+    function addCustomPizza() {
+        const crust = document.querySelector('#crust').value;
+        const toppings = Array.from(document.querySelector('#toppings').selectedOptions).map(option => option.value);
+        const pizzaName = `Build Your Own Pizza: ${crust} Crust, Toppings: ${toppings.join(', ')}`;
+        const pizzaPrice = 15; // Base price for a custom pizza
+
+        cart.push({ name: pizzaName, price: pizzaPrice });
+        updateCart();
+    }
+
     // Add event listener for "Add" buttons for both pizza and dessert items
     document.querySelectorAll('.pizza-item .add-overlay, .dessert-item .add-overlay').forEach(button => {
         button.addEventListener('click', addToCart);
     });
+
+    // Add event listener for "Add Custom Pizza" button
+    document.querySelector('.add-custom-pizza').addEventListener('click', addCustomPizza);
 
     // Add event listener for "Remove" buttons in cart
     cartItemsContainer.addEventListener('click', removeFromCart);
