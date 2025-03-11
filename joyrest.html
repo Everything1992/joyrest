@@ -195,16 +195,69 @@
       </div>
     </header>
 
+    <!-- ------------ modal HTML ----------- -->
+    <section class="#">
+      <div class="modal-container" id="modal-container">
+        <div class="modal">
+          <img id="modal-image" src="" alt="modal image holder">
+          <h2>Modal Menu</h2>
+          <div class="options">
+            <p>Choose your crust, sauce, and toppings to create your perfect pizza.</p>
+            <form id="formModal">
+              <p>Choose your toppings:</p>
+              <div class="choose">
+              <!-- Checkbox options for toppings -->
+              <label for="pepperoni">
+                <input type="checkbox" id="pepperoni" name="toppings" value="pepperoni"> Pepperoni
+              </label>
+              <label for="mushrooms">
+                <input type="checkbox" id="mushrooms" name="toppings" value="mushrooms"> Mushrooms
+              </label>
+              <label for="olives">
+                <input type="checkbox" id="olives" name="toppings" value="olives"> Olives
+              </label>
+              <label for="basil">
+                <input type="checkbox" id="basil" name="toppings" value="basil"> Fresh Basil
+              </label>
+              <label for="jalapenos">
+                <input type="checkbox" id="jalapenos" name="toppings" value="jalapenos"> Jalapeños
+              </label>
+              <label for="extra_cheese">
+                <input type="checkbox" id="extra_cheese" name="toppings" value="extra_cheese"> Extra Cheese
+              </label>
+            </div>
+
+            <!-- select option for a single crust type-->
+            <select id="crust" name="crust" required>
+              <option value="thin">Thin Crust</option>
+              <option value="thick">Thick Crust</option>
+              <option value="cauliflower">Cauliflower Crust</option>
+              <option value="gluten_free">Gluten-Free Crust</option>
+            </select>
+            
+              <button type="submit">Add to Cart</button>
+              <button id="close">close</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
     <section id="menu" class="section">
       <div class="section-header">
         <h2>Our Menu</h2>
         <p>Fresh Ingredients, Authentic Recipes</p>
       </div>
       <div class="menu-grid">
-        <div class="menu-item">
+        <div class="menu-item" id="hamandmush">
           <img
             src="images/ham&mushroom.jpg"
             alt="Pizza with ham, mozzarella, and mushrooms"
+            class="selected"
+            id="HamnMush"
           />
           <h3>Ham & Mushroom Pizza</h3>
           <p class="description">Tomato sauce, mozzarella, ham, mushrooms w/ choice of craft beer </p>
@@ -214,6 +267,8 @@
           <img
             src="images/mozzarella_pizza.jpg - Copy.jpg"
             alt="Mozzarella Cheese Pizza w/wine cheese and grapes"
+            class="selected"
+            id="PizzanWine" 
           />
           <h3>Pizza & Wine</h3>
           <p class="description">Mozzarella Cheese Pizza w/choice of wine cheese and grapes</p>
@@ -223,6 +278,8 @@
           <img
             src="images/pepperoni_basil_pizza.jpg.jpg"
             alt="Pepperoni, bazil, and cherry tomatoes"
+            class="selected"
+            id="PepperoninPizza"
           />
           <h3>Pepperoni Pizza</h3>
           <p class="description">Pepperoni, bazil, and cherry tomatoes</p>
@@ -238,10 +295,12 @@
         <p>Our freshly made pasta dishes are a true Italian delight</p>
       </div>
       <div class="menu-grid">
-        <div class="menu-item">
+        <div class="menu-item" >
           <img
             src="images/cherrytomatopasta.jpg"
             alt="Pasta with cherry tomatoes, basil, in white wine sauce"
+            class="selected"
+            id="PastanCherry"
           />
           <h3>Pasta & Cherry Tomatoes</h3>
           <p class="description">Classic spaghetti with white wine sauce, cherry tomatoes,basil Parmesan cheese</p>
@@ -251,15 +310,19 @@
           <img
             src="images/chickenfettucini.jpg"
             alt="Chicken Fettucini"
+            class="selected"
+            id="ChickenFet"
           />
           <h3>Chicken Fettucini</h3>
           <p class="description">Chicken fettucini with basil and Alfredo garlic sauce.</p>
           <p class="price">$20</p>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" >
           <img
             src="images/shrimppasta.jpg"
             alt="Shrimp Pasta"
+            class="selected"
+            id="ShrimpPast"
           />
           <h3>Shrimp Pasta</h3>
           <p class="description">Shrimp pasta with basil, parmessan cheese and garlic sauce</p>
@@ -307,7 +370,8 @@
       </div>
     </footer>
   </body>
-</html>
-<script src="components/navBar/navBar.js"></script>
+  <script src="components/navBar/navBar.js"></script>
+  <script src="components/form/form.js"></script>
+  <script src="components/modal.js"></script>
 
-<script src="components/form/form.js"></script>
+</html>
