@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,212 +9,75 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&family=Lora:wght@400;700&display=swap"
-        rel="stylesheet"
-    />
-    <style>
-        /* Same CSS as before, no changes needed */
-        body {
-            font-family: "Poppins", sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
-        }
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #ccc;
-        }
-        .nav .logo {
-            font-family: "Playfair Display", serif;
-            font-size: 1.8em;
-            color: #000;
-        }
-        .nav .menu a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #000;
-            font-weight: 500;
-        }
-        .container {
-            max-width: 960px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        h1 {
-            font-family: "Playfair Display", serif;
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 30px;
-            color: #d4af37;
-        }
-        .pizza-grid, .dessert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .pizza-item, .dessert-item {
-            background-color: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-        .pizza-item:hover, .dessert-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-        .pizza-item img, .dessert-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px 12px 0 0;
-            margin-bottom: 15px;
-        }
-        .add-overlay {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 215, 0, 0.9);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .pizza-item h2, .dessert-item h2 {
-            margin-bottom: 10px;
-            color: #222;
-        }
-        .pizza-item p, .dessert-item p {
-            color: #555;
-            margin-bottom: 15px;
-        }
-        .price {
-            font-weight: bold;
-            color: #d4af37;
-        }
-        select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-top: 10px;
-        }
-        button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #d4af37;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #b28f2c;
-        }
-        @media (max-width: 768px) {
-            .pizza-grid, .dessert-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .section-break {
-            margin: 40px 0;
-            height: 1px;
-            background-color: #ccc;
-        }
-        .cart-container {
-            background-color: white;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .cart-items {
-            margin-bottom: 20px;
-        }
-        .cart-item {
-            margin-bottom: 10px;
-        }
-        .remove-btn {
-            color: red;
-            cursor: pointer;
-        }
-        .checkout-button {
-            background-color: #d4af37;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .checkout-button:hover {
-            background-color: #b28f2c;
-        }
-    </style>
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <div class="nav">
-        <div class="logo">Joy</div>
-        <div class="menu">
-            <a href="https://everything1992.github.io/joyrest/joyrest.html">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="contact.html">Contact</a>
-        </div>
+
     </div>
     <div class="container">
         <h1>Joy - Pizza Menu Continued</h1>
         <div class="pizza-grid">
             <!-- Pizza Items -->
             <div class="pizza-item" data-name="Mozzarella and Cheese" data-price="14">
-                <div class="add-overlay">+ Add</div>
-                <img src="imagesmozzarellawbeer.jpg" alt="Mozzarella and Cheese Pizza with Craft Beer" />
+                <img src="images/imagesmozzarellawbeer.jpg" alt="Mozzarella and Cheese Pizza with Craft Beer" />
                 <h2>Mozzarella and Cheese</h2>
-                <p>Classic pizza with fresh mozzarella and a blend of cheeses. Comes with a craft beer of your choice.</p>
-                <p class="price">$14</p>
+                <p>Classic pizza with fresh mozzarella and a blend of cheeses. Comes with a craft beer of your choice.
+                </p>
+                <p class="price">$14</p> <button class="add-overlay"
+                    onclick="addToCart('Mozzarella and Cheese', 14, 'images/imagesmozzarellawbeer.jpg')">+ Add</button>
+
             </div>
             <div class="pizza-item" data-name="Pepperoni & Basil" data-price="15">
-                <div class="add-overlay">+ Add</div>
-                <img src="imagespepperoni_basil_pizza.jpg.jpg" alt="Pepperoni and Basil Pizza" />
+                <img src="images/imagespepperoni_basil_pizza.jpg.jpg" alt="Pepperoni and Basil Pizza" />
                 <h2>Pepperoni & Basil</h2>
                 <p>Delicious pepperoni with fresh basil on a tomato base.</p>
                 <p class="price">$15</p>
+                <button class="add-overlay"
+                    onclick="addToCart('Pepperoni & Basil', 15, 'images/imagespepperoni_basil_pizza.jpg')">+
+                    Add</button>
             </div>
             <div class="pizza-item" data-name="Pizza w/ Craft Beer" data-price="18">
-                <div class="add-overlay">+ Add</div>
-                <img src="imagesbeer_pizza.jpg" alt="Pizza with Craft Beer" />
+                <img src="images/imagesbeer_pizza.jpg" alt="Pizza with Craft Beer" />
                 <h2>Pizza w/ Craft Beer</h2>
                 <p>A perfect pairing for the big game: any large pizza of choice with a craft beer.</p>
                 <p class="price">$18</p>
+                <button class="add-overlay"
+                    onclick="addToCart('Pizza w/ Craft Beer', 18, 'images/imagesbeer_pizza.jpg')">+ Add</button>
             </div>
             <div class="pizza-item" data-name="Cauliflower Crust Pizza" data-price="20">
-                <div class="add-overlay">+ Add</div>
-                <img src="imagescauliflowerthincrust.jpg" alt="Cauliflower Crust Pizza" />
+                <img src="images/imagescauliflowerthincrust.jpg" alt="Cauliflower Crust Pizza" />
                 <h2>Cauliflower Crust Pizza</h2>
                 <p>Low-carb pizza with a crispy cauliflower crust and your choice of toppings.</p>
                 <p class="price">$20</p>
+                <button class="add-overlay"
+                    onclick="addToCart('Cauliflower Crust Pizza', 20, 'images/imagescauliflowerthincrust.jpg')">+
+                    Add</button>
             </div>
             <div class="pizza-item" data-name="Kids Vegan Pizza" data-price="10">
-                <div class="add-overlay">+ Add</div>
-                <img src="imageskidspizzafriesvegan.jpg" alt="Kids Vegan Pizza with Fries" />
+                <img src="images/imageskidspizzafriesvegan.jpg" alt="Kids Vegan Pizza with Fries" />
                 <h2>Kids Vegan Pizza</h2>
                 <p>Perfectly sized pizzas for our younger guests, served with fries.</p>
                 <p class="price">$10</p>
+                <button class="add-overlay"
+                    onclick="addToCart('Kids Vegan Pizza', 10, 'images/imageskidspizzafriesvegan.jpg')">+ Add</button>
             </div>
             <div class="pizza-item" data-name="Kids Combo" data-price="13">
-                <div class="add-overlay">+ Add</div>
-                <img src="imageskidsburgerfries.jpg" alt="Kids Combo Meal" />
+                <img src="images/imageskidsburgerfries.jpg" alt="Kids Combo Meal" />
                 <h2>Kids Combo</h2>
                 <p>Kids chicken tenders, small burgers, and crispy fries.</p>
                 <p class="price">$13</p>
+                <button class="add-overlay" onclick="addToCart('Kids Combo', 13, 'images/imageskidsburgerfries.jpg')">+
+                    Add</button>
             </div>
             <!-- Build Your Own Pizza -->
             <div class="pizza-item" data-name="Build Your Own Pizza" data-price="20">
                 <div class="add-overlay">+ Add</div>
-                <img src="imagesham&mushroom.jpg" alt="Build Your Own Pizza" />
+                <img src="images/crisp_image.jpg" alt="Build Your Own Pizza" />
                 <h2>Build Your Own Pizza</h2>
                 <p>Choose your crust, sauce, and toppings to create your perfect pizza.</p>
                 <label for="crust">Crust:</label>
@@ -232,7 +96,7 @@
                     <option value="Sausage">Sausage</option>
                     <option value="Pesto">Pesto</option>
                 </select>
-                <button class="add-custom-pizza">Add Custom Pizza</button>
+                <button class="add-custom-pizza" onclick="addCustomPizzaToCart(20)">Add Custom Pizza</button>
             </div>
         </div>
 
@@ -241,102 +105,27 @@
         <h1>Delicious Desserts</h1>
         <div class="dessert-grid">
             <div class="dessert-item" data-name="Apple Crisp" data-price="8">
-                <div class="add-overlay">+ Add</div>
-                <img src="images.crisp.jpg" alt="Apple Crisp w/ Ice Cream" />
+                <img src="images/images.crisp.jpg" alt="Apple Crisp w/ Ice Cream" />
                 <h2>Apple Crisp</h2>
                 <p>Apple Crisp with French vanilla ice cream.</p>
                 <p class="price">$8</p>
+                <button class="add-overlay" onclick="addToCart('Apple Crisp', 8, 'images/images.crisp.jpg')">+
+                    Add</button>
             </div>
             <div class="dessert-item" data-name="Fruit Tart" data-price="8">
-                <div class="add-overlay">+ Add</div>
-                <img src="images.tart.jpg" alt="Fruit Tart" />
+                <img src="images/images.tart.jpg" alt="Fruit Tart" />
                 <h2>Fruit Tart</h2>
                 <p>Classic fruit tart with cinnamon, fresh fruit and powdered sugar.</p>
                 <p class="price">$8</p>
+                <button class="add-overlay" onclick="addToCart('Fruit Tart', 8, 'images/images.tart.jpg')">+
+                    Add</button>
             </div>
         </div>
-
-        <!-- Cart Section -->
-       <div class="cart-container">
-    <h2>Your Cart</h2>
-    <div class="cart-items">
-        <!-- Items will be added here dynamically -->
-    </div>
-    <div class="cart-total">
-        Total: $0
-    </div>
-    <!-- Wrap the checkout button with an anchor tag that links to checkout.html -->
-    <a href="https://everything1992.github.io/joyrest/checkout.html">
-        <button class="checkout-button">Proceed to Checkout</button>
-    </a>
-    </div>
-
-    <script>
-    let cart = [];
-    const cartItemsContainer = document.querySelector('.cart-items');
-    const cartTotal = document.querySelector('.cart-total');
-
-    // Function to update the cart display
-    function updateCart() {
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-
-        cart.forEach((item, index) => {
-            const cartItem = document.createElement('div');
-            cartItem.classList.add('cart-item');
-            cartItem.innerHTML = `
-                <span><strong>${item.name}</strong> - $${item.price}</span>
-                <span class="remove-btn" data-index="${index}">Remove</span>
-            `;
-            cartItemsContainer.appendChild(cartItem);
-            total += item.price;
-        });
-
-        cartTotal.textContent = `Total: $${total.toFixed(2)}`; // Display total with two decimal places
-    }
-
-    // Function to handle adding an item to the cart
-    function addToCart(event) {
-        const item = event.target.closest('.pizza-item, .dessert-item'); // Target both pizza and dessert items
-        if (!item) return;
-
-        const name = item.querySelector('h2').textContent; // Get name of the item
-        const price = parseFloat(item.querySelector('.price').textContent.replace('$', '')); // Get price of the item
-
-        cart.push({ name, price });
-        updateCart();
-    }
-
-    // Function to handle removing an item from the cart
-    function removeFromCart(event) {
-        const index = event.target.getAttribute('data-index');
-        if (index !== null) {
-            cart.splice(index, 1); // Remove the item from the cart based on index
-            updateCart();
-        }
-    }
-
-    // Function to handle adding a custom pizza
-    function addCustomPizza() {
-        const crust = document.querySelector('#crust').value;
-        const toppings = Array.from(document.querySelector('#toppings').selectedOptions).map(option => option.value);
-        const pizzaName = `Build Your Own Pizza: ${crust} Crust, Toppings: ${toppings.join(', ')}`;
-        const pizzaPrice = 15; // Base price for a custom pizza
-
-        cart.push({ name: pizzaName, price: pizzaPrice });
-        updateCart();
-    }
-
-    // Add event listener for "Add" buttons for both pizza and dessert items
-    document.querySelectorAll('.pizza-item .add-overlay, .dessert-item .add-overlay').forEach(button => {
-        button.addEventListener('click', addToCart);
-    });
-
-    // Add event listener for "Add Custom Pizza" button
-    document.querySelector('.add-custom-pizza').addEventListener('click', addCustomPizza);
-
-    // Add event listener for "Remove" buttons in cart
-    cartItemsContainer.addEventListener('click', removeFromCart);
-</script>
+        <script src="dist/cart.bundle.js"></script>
+        <script src="dist/navBar.bundle.js"></script>
 </body>
+
+</html>
+</body>
+
 </html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joy - Pizza & Pasta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&family=Lora:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="https://js.stripe.com/terminal/v1/"></script>
+
+</head>
+
+<body>
+  <header>
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Joy</h1>
+        <p>A Taste of Italy</p>
+        <a href="menu.html" class="button">View Menu</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="menu" class="section">
+    <div class="section-header">
+      <h2>Our most popular items</h2>
+      <p>Fresh Ingredients, Authentic Recipes</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="images/imagesham&mushroom.jpg" alt="Pizza with ham, mozzarella, and mushrooms" />
+        <h3>Ham & Mushroom Pizza</h3>
+        <p class="description">Tomato sauce, mozzarella, ham, mushrooms w/ choice of craft beer</p>
+        <p class="price">$22</p>
+        <button class="add-overlay" onclick="addToCart('Ham & Mushroom Pizza', 22, 'images/imagesham&mushroom.jpg')">+
+          Add</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/imagesmozzarella_pizza.jpg - Copy.jpg"
+          alt="Mozzarella Cheese Pizza w/wine cheese and grapes" />
+        <h3>Pizza & Wine</h3>
+        <p class="description">Mozzarella Cheese Pizza w/choice of wine cheese and grapes</p>
+        <p class="price">$30</p>
+        <button class="add-overlay"
+          onclick="addToCart('Pizza & Wine', 30, 'images/imagesmozzarella_pizza.jpg - Copy.jpg')">+ Add</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/imagespepperoni_basil_pizza.jpg.jpg" alt="Pepperoni, basil, and cherry tomatoes" />
+        <h3>Pepperoni Pizza</h3>
+        <p class="description">Pepperoni, basil, and cherry tomatoes</p>
+        <p class="price">$15</p>
+        <button class="add-overlay"
+          onclick="addToCart('Pepperoni Pizza', 15, 'images/imagespepperoni_basil_pizza.jpg.jpg')">+ Add</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pasta Dishes Section -->
+  <section id="pasta" class="section">
+    <div class="section-header">
+      <h2>Pasta Dishes</h2>
+      <p>Our freshly made pasta dishes are a true Italian delight</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="images/imagescherrytomatopasta.jpg" alt="Pasta with cherry tomatoes, basil, in white wine sauce" />
+        <h3>Pasta & Cherry Tomatoes</h3>
+        <p class="description">Classic spaghetti with white wine sauce, cherry tomatoes, basil Parmesan cheese</p>
+        <p class="price">$18</p>
+        <button class="add-overlay"
+          onclick="addToCart('Pasta & Cherry Tomatoes', 18, 'images/imagescherrytomatopasta.jpg')">+ Add</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/imageschickenfettucini.jpg" alt="Chicken Fettucini" />
+        <h3>Chicken Fettucini</h3>
+        <p class="description">Chicken fettucini with basil and Alfredo garlic sauce.</p>
+        <p class="price">$20</p>
+        <button class="add-overlay" onclick="addToCart('Chicken Fettucini', 20, 'images/imageschickenfettucini.jpg')">+
+          Add</button>
+      </div>
+      <div class="menu-item">
+        <img src="images/imagesshrimppasta.jpg" alt="Shrimp Pasta" />
+        <h3>Shrimp Pasta</h3>
+        <p class="description">Shrimp pasta with basil, Parmesan cheese, and garlic sauce</p>
+        <p class="price">$27</p>
+        <button class="add-overlay" onclick="addToCart('Shrimp Pasta', 27, 'images/imagesshrimppasta.jpg')">+
+          Add</button>
+      </div>
+    </div>
+  </section>
+
+
+
+  <div id="contact-section"></div>
+
+  <!-- Payment Methods Section -->
+  <section id="payment-methods" class="section">
+    <div class="section-header">
+      <h2>Payment Methods</h2>
+      <p>We accept the following payment methods:</p>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+      <i class="fa-brands fa-cc-visa" style="font-size: 2.5em; color: #1A1F71;"></i>
+      <i class="fa-brands fa-cc-mastercard" style="font-size: 2.5em; color: #EB001B;"></i>
+      <i class="fa-brands fa-cc-amex" style="font-size: 2.5em; color: #0078C1;"></i>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Joy - A Taste of Italy. All rights reserved.</p>
+  </footer>
+  <script src="dist/cart.bundle.js"></script>
+  <script src="dist/checkout.bundle.js"></script>
+  <script src="dist/form.bundle.js"></script>
+  <script src="dist/navBar.bundle.js"></script>
+</body>
+
+</html>
