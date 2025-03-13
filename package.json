@@ -1,33 +1,28 @@
 {
-  "name": "joyrest",
+  "name": "joy-pizza",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && npx serve -l 5500 joyrest/dist",
-    "build": "webpack && copyfiles *.html dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Everything1992/joyrest.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "private": true,
+  "description": "Joy Pizza ordering system",
+  "main": "api/index.js",
   "type": "module",
-  "bugs": {
-    "url": "https://github.com/Everything1992/joyrest/issues"
+  "scripts": {
+    "dev": "node api/index.js",
+    "build": "webpack",
+    "start": "node api/index.js"
   },
-  "homepage": "https://github.com/Everything1992/joyrest#readme",
   "dependencies": {
-    "express": "^4.21.2",
-    "vercel": "^41.4.0"
+    "express": "^4.18.2",
+    "stripe": "^12.0.0"
+  },
+  "engines": {
+    "node": ">=14.x"
   },
   "devDependencies": {
-    "copyfiles": "^2.4.1",
-    "dotenv-webpack": "^8.1.0",
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "babel-loader": "^10.0.0",
     "webpack": "^5.98.0",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-node-externals": "^3.0.0"
   }
 }

@@ -158,6 +158,7 @@ function createCart() {
         if (cartCount) {
             const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
             cartCount.textContent = totalQuantity;
+            console.log('Total quantity:', totalQuantity);
 
             // Add a little animation to the cart count when updated
             cartCount.classList.add('cart-count-update');
@@ -186,16 +187,16 @@ function createCart() {
         }
 
         // These are already called in addToCart, no need to call them again.
+        localStorage.setItem('cart', JSON.stringify(cart));
         updateCartDisplay();
         updateCartCount();
-        localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     // Add a small delay
-    setTimeout(() => {
-        updateCartDisplay();
-        updateCartCount(); // This should update the count!
-    }, 0);
+    // setTimeout(() => {
+    //     updateCartDisplay();
+    //     updateCartCount(); // This should update the count!
+    // }, 0);
 
     // Add a custom pizza to the cart
     window.addCustomPizzaToCart = function (basePrice) {
@@ -221,9 +222,9 @@ function createCart() {
         });
 
         showToast('Custom pizza added to cart');
+        localStorage.setItem('cart', JSON.stringify(cart));
         updateCartDisplay();
         updateCartCount();
-        localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     // Function to show toast notification
@@ -275,9 +276,9 @@ function createCart() {
         if (e.target.classList.contains('increase-quantity')) {
             const index = parseInt(e.target.dataset.index);
             cart[index].quantity += 1;
+            localStorage.setItem('cart', JSON.stringify(cart));
             updateCartDisplay();
             updateCartCount();
-            localStorage.setItem('cart', JSON.stringify(cart));
         }
 
         // Decrease quantity
@@ -289,9 +290,9 @@ function createCart() {
                 // Remove item if quantity would be 0
                 cart.splice(index, 1);
             }
+            localStorage.setItem('cart', JSON.stringify(cart));
             updateCartDisplay();
             updateCartCount();
-            localStorage.setItem('cart', JSON.stringify(cart));
         }
 
         // Remove item
@@ -306,9 +307,9 @@ function createCart() {
 
             setTimeout(() => {
                 cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartDisplay();
                 updateCartCount();
-                localStorage.setItem('cart', JSON.stringify(cart));
             }, 300);
         }
 
@@ -374,7 +375,6 @@ function createCart() {
     const countStyleElement = document.createElement('style');
     countStyleElement.textContent = countStyles;
     document.head.appendChild(countStyleElement);
-
     // Initial display and count update
     updateCartDisplay();
     updateCartCount();
