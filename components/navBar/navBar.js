@@ -52,7 +52,6 @@ function createNavbar() {
             cartSection.classList.toggle('active');
         });
     }
-    updateCartCount();
 }
 
 document.addEventListener("DOMContentLoaded", createNavbar);

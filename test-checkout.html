@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Checkout - Joy Pizza</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .log {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+
+        .log-entry {
+            margin-bottom: 5px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Test Checkout</h1>
+        <p>This page tests the Stripe checkout integration with a simple product.</p>
+
+        <button id="test-checkout-button" class="cta-button">Test Checkout ($0.50)</button>
+
+        <div class="log" id="log">
+            <div class="log-entry">Ready to test checkout...</div>
+        </div>
+    </div>
+
+    <script>
+        const logElement = document.getElementById('log');
+
+        function log(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            entry.textContent = message;
+            logElement.appendChild(entry);
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        document.getElementById('test-checkout-button').addEventListener('click', async function () {
+            try {
+                this.disabled = true;
+                this.textContent = 'Processing...';
+
+                log('Starting checkout test...');
+
+                // Step 1: Get Stripe publishable key
+                log('Fetching Stripe publishable key...');
+                const configResponse = await fetch('/api/config');
+                if (!configResponse.ok) {
+                    throw new Error(`Config API error: ${configResponse.status} ${configResponse.statusText}`);
+                }
+
+                const { publishableKey } = await configResponse.json();
+                log(`Got publishable key: ${publishableKey.substring(0, 8)}...`, 'success');
+
+                const stripe = Stripe(publishableKey);
+
+                // Get the current origin for absolute URLs
+                const origin = window.location.origin;
+                log(`Current origin: ${origin}`);
+
+                // Step 2: Create a simple line item with absolute image URL
+                const lineItems = [{
+                    price_data: {
+                        currency: 'usd',
+                        product_data: {
+                            name: 'Test Pizza',
+                            images: [`${origin}/placeholder.svg?height=200&width=300`]
+                        },
+                        unit_amount: 50 // $0.50 in cents
+                    },
+                    quantity: 1
+                }];
+
+                log('Creating checkout session...');
+                log(`Request payload: ${JSON.stringify({ lineItems }, null, 2)}`);
+
+                // Step 3: Create checkout session
+                const response = await fetch('/api/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ lineItems })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Failed to create checkout session: ${errorText}`);
+                }
+
+                const data = await response.json();
+                log(`Got session ID: ${data.sessionId}`, 'success');
+
+                // Step 4: Redirect to Stripe checkout
+                log('Redirecting to Stripe checkout...');
+                const result = await stripe.redirectToCheckout({
+                    sessionId: data.sessionId
+                });
+
+                if (result.error) {
+                    throw new Error(result.error.message);
+                }
+            } catch (error) {
+                log(`Error: ${error.message}`, 'error');
+                console.error('Checkout error:', error);
+                this.disabled = false;
+                this.textContent = 'Test Checkout ($0.50)';
+            }
+        });
+    </script>
+</body>
+
+</html>
