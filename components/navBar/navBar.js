@@ -1,5 +1,5 @@
 function createNavbar() {
-    const navbarHTML = `
+  const navbarHTML = `
         <header class="navbar">
             <nav>
                 <a href="index.html" class="logo">Joy</a>
@@ -12,7 +12,7 @@ function createNavbar() {
                 <li><a href="index.html">Home</a></li>
 
                     <li><a href="menu.html">Menu</a></li>
-                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="about.html#about">About</a></li>
                     <li><a href="index.html#location">Location</a></li>
                  </ul>
             </nav>
@@ -23,35 +23,35 @@ function createNavbar() {
         </div>
     `;
 
-    document.body.insertAdjacentHTML("afterbegin", navbarHTML);
+  document.body.insertAdjacentHTML("afterbegin", navbarHTML);
 
-    // Existing functionality for the menu toggle
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+  // Existing functionality for the menu toggle
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            menuToggle.classList.toggle("active");
-        });
-    }
-
-    window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".navbar");
-        if (navbar) {
-            navbar.classList.toggle("scrolled", window.scrollY > 50);
-        }
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.classList.toggle("active");
     });
+  }
 
-    // Cart icon functionality
-    const cartIcon = document.getElementById('cart-icon');
-    const cartSection = document.getElementById('cart-section');
-
-    if (cartIcon && cartSection) {
-        cartIcon.addEventListener('click', () => {
-            cartSection.classList.toggle('active');
-        });
+  window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (navbar) {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
     }
+  });
+
+  // Cart icon functionality
+  const cartIcon = document.getElementById("cart-icon");
+  const cartSection = document.getElementById("cart-section");
+
+  if (cartIcon && cartSection) {
+    cartIcon.addEventListener("click", () => {
+      cartSection.classList.toggle("active");
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", createNavbar);
