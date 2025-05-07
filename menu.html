@@ -1,128 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joy - Pizza Menu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&family=Lora:wght@400;700&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<body>
+  <body>
+    <!-- Navbar will be injected by navBar.bundle.js -->
 
-    </div>
-    <div class="container">
-        <h1>Joy - Pizza Menu Continued</h1>
-        <div class="pizza-grid">
-            <!-- Pizza Items -->
-            <div class="pizza-item" data-name="Mozzarella and Cheese" data-price="14">
-                <img src="images/imagesmozzarellawbeer.jpg" alt="Mozzarella and Cheese Pizza with Craft Beer" />
-                <h2>Mozzarella and Cheese</h2>
-                <p>Classic pizza with fresh mozzarella and a blend of cheeses. Comes with a craft beer of your choice.
-                </p>
-                <p class="price">$14</p> <button class="add-overlay"
-                    onclick="addToCart('Mozzarella and Cheese', 14, 'images/imagesmozzarellawbeer.jpg')">+ Add</button>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Our Menu</h1>
+        <p>Delicious pizzas, pastas, and desserts made with love.</p>
+      </div>
+    </section>
 
-            </div>
-            <div class="pizza-item" data-name="Pepperoni & Basil" data-price="15">
-                <img src="images/imagespepperoni_basil_pizza.jpg.jpg" alt="Pepperoni and Basil Pizza" />
-                <h2>Pepperoni & Basil</h2>
-                <p>Delicious pepperoni with fresh basil on a tomato base.</p>
-                <p class="price">$15</p>
-                <button class="add-overlay"
-                    onclick="addToCart('Pepperoni & Basil', 15, 'images/imagespepperoni_basil_pizza.jpg')">+
-                    Add</button>
-            </div>
-            <div class="pizza-item" data-name="Pizza w/ Craft Beer" data-price="18">
-                <img src="images/imagesbeer_pizza.jpg" alt="Pizza with Craft Beer" />
-                <h2>Pizza w/ Craft Beer</h2>
-                <p>A perfect pairing for the big game: any large pizza of choice with a craft beer.</p>
-                <p class="price">$18</p>
-                <button class="add-overlay"
-                    onclick="addToCart('Pizza w/ Craft Beer', 18, 'images/imagesbeer_pizza.jpg')">+ Add</button>
-            </div>
-            <div class="pizza-item" data-name="Cauliflower Crust Pizza" data-price="20">
-                <img src="images/imagescauliflowerthincrust.jpg" alt="Cauliflower Crust Pizza" />
-                <h2>Cauliflower Crust Pizza</h2>
-                <p>Low-carb pizza with a crispy cauliflower crust and your choice of toppings.</p>
-                <p class="price">$20</p>
-                <button class="add-overlay"
-                    onclick="addToCart('Cauliflower Crust Pizza', 20, 'images/imagescauliflowerthincrust.jpg')">+
-                    Add</button>
-            </div>
-            <div class="pizza-item" data-name="Kids Vegan Pizza" data-price="10">
-                <img src="images/imageskidspizzafriesvegan.jpg" alt="Kids Vegan Pizza with Fries" />
-                <h2>Kids Vegan Pizza</h2>
-                <p>Perfectly sized pizzas for our younger guests, served with fries.</p>
-                <p class="price">$10</p>
-                <button class="add-overlay"
-                    onclick="addToCart('Kids Vegan Pizza', 10, 'images/imageskidspizzafriesvegan.jpg')">+ Add</button>
-            </div>
-            <div class="pizza-item" data-name="Kids Combo" data-price="13">
-                <img src="images/imageskidsburgerfries.jpg" alt="Kids Combo Meal" />
-                <h2>Kids Combo</h2>
-                <p>Kids chicken tenders, small burgers, and crispy fries.</p>
-                <p class="price">$13</p>
-                <button class="add-overlay" onclick="addToCart('Kids Combo', 13, 'images/imageskidsburgerfries.jpg')">+
-                    Add</button>
-            </div>
-            <!-- Build Your Own Pizza -->
-            <div class="pizza-item" data-name="Build Your Own Pizza" data-price="20">
-                <div class="add-overlay">+ Add</div>
-                <img src="images/crisp_image.jpg" alt="Build Your Own Pizza" />
-                <h2>Build Your Own Pizza</h2>
-                <p>Choose your crust, sauce, and toppings to create your perfect pizza.</p>
-                <label for="crust">Crust:</label>
-                <select id="crust" name="crust">
-                    <option value="Thin">Thin Crust</option>
-                    <option value="Thick">Thick Crust</option>
-                    <option value="Cauliflower">Cauliflower Crust</option>
-                    <option value="Gluten_free">Gluten-Free Crust</option>
-                </select>
-                <label for="toppings">Toppings:</label>
-                <select id="toppings" name="toppings" multiple>
-                    <option value="Pepperoni">Pepperoni</option>
-                    <option value="Mushrooms">Mushrooms</option>
-                    <option value="Olives">Olives</option>
-                    <option value="Pineapple">Pineapple</option>
-                    <option value="Sausage">Sausage</option>
-                    <option value="Pesto">Pesto</option>
-                </select>
-                <button class="add-custom-pizza" onclick="addCustomPizzaToCart(20)">Add Custom Pizza</button>
-            </div>
+    <!-- Pizzas Section -->
+    <section id="pizzas" class="section">
+      <div class="section-header">
+        <h2>Our Pizzas</h2>
+        <p>Handcrafted with the freshest ingredients.</p>
+      </div>
+      <div class="pizza-grid">
+        <!-- Pizza Items -->
+        <div
+          class="pizza-item"
+          data-name="Mozzarella and Cheese"
+          data-price="14"
+        >
+          <img
+            src="images/imagesmozzarellawbeer.jpg"
+            alt="Mozzarella and Cheese Pizza with Craft Beer"
+          />
+          <h2>Mozzarella and Cheese</h2>
+          <p>
+            Classic pizza with fresh mozzarella and a blend of cheeses. Comes
+            with a craft beer of your choice.
+          </p>
+          <p class="price">$14</p>
+          <button
+            class="add-overlay"
+            onclick="addToCart('Mozzarella and Cheese', 14, 'images/imagesmozzarellawbeer.jpg')"
+          >
+            + Add
+          </button>
         </div>
-
-        <!-- Desserts Section -->
-        <div class="section-break"></div>
-        <h1>Delicious Desserts</h1>
-        <div class="dessert-grid">
-            <div class="dessert-item" data-name="Apple Crisp" data-price="8">
-                <img src="images/images.crisp.jpg" alt="Apple Crisp w/ Ice Cream" />
-                <h2>Apple Crisp</h2>
-                <p>Apple Crisp with French vanilla ice cream.</p>
-                <p class="price">$8</p>
-                <button class="add-overlay" onclick="addToCart('Apple Crisp', 8, 'images/images.crisp.jpg')">+
-                    Add</button>
-            </div>
-            <div class="dessert-item" data-name="Fruit Tart" data-price="8">
-                <img src="images/images.tart.jpg" alt="Fruit Tart" />
-                <h2>Fruit Tart</h2>
-                <p>Classic fruit tart with cinnamon, fresh fruit and powdered sugar.</p>
-                <p class="price">$8</p>
-                <button class="add-overlay" onclick="addToCart('Fruit Tart', 8, 'images/images.tart.jpg')">+
-                    Add</button>
-            </div>
+        <div class="pizza-item" data-name="Pepperoni & Basil" data-price="15">
+          <img
+            src="images/imagespepperoni_basil_pizza.jpg.jpg"
+            alt="Pepperoni and Basil Pizza"
+          />
+          <h2>Pepperoni & Basil</h2>
+          <p>Delicious pepperoni with fresh basil on a tomato base.</p>
+          <p class="price">$15</p>
+          <button
+            class="add-overlay"
+            onclick="addToCart('Pepperoni & Basil', 15, 'images/imagespepperoni_basil_pizza.jpg')"
+          >
+            + Add
+          </button>
         </div>
-        <script src="dist/cart.bundle.js"></script>
-        <script src="dist/navBar.bundle.js"></script>
-</body>
+        <div class="pizza-item" data-name="Pizza w/ Craft Beer" data-price="18">
+          <img src="images/imagesbeer_pizza.jpg" alt="Pizza with Craft Beer" />
+          <h2>Pizza w/ Craft Beer</h2>
+          <p>
+            A perfect pairing for the big game: any large pizza of choice with a
+            craft beer.
+          </p>
+          <p class="price">$18</p>
+          <button
+            class="add-overlay"
+            onclick="addToCart('Pizza w/ Craft Beer', 18, 'images/imagesbeer_pizza.jpg')"
+          >
+            + Add
+          </button>
+        </div>
+        <div
+          class="pizza-item"
+          data-name="Cauliflower Crust Pizza"
+          data-price="20"
+        >
+          <img
+            src="images/imagescauliflowerthincrust.jpg"
+            alt="Cauliflower Crust Pizza"
+          />
+          <h2>Cauliflower Crust Pizza</h2>
+          <p>
+            Low-carb pizza with a crispy cauliflower crust and your choice of
+            toppings.
+          </p>
+          <p class="price">$20</p>
+          <button
+            class="add-overlay"
+            onclick="addToCart('Cauliflower Crust Pizza', 20, 'images/imagescauliflowerthincrust.jpg')"
+          >
+            + Add
+          </button>
+        </div>
+        <div class="pizza-item" data-name="Kids Vegan Pizza" data-price="10">
+          <img
+            src="images/imageskidspizzafriesvegan.jpg"
+            alt="Kids Vegan Pizza with Fries"
+          />
+          <h2>Kids Vegan Pizza</h2>
+          <p>
+            Perfectly sized pizzas for our younger guests, served with fries.
+          </p>
+          <p class="price">$10</p>
+          <button
+            class="add-overlay"
+            onclick="addToCart('Kids Vegan Pizza', 10, 'images/imageskidspizzafriesvegan.jpg')"
+          >
+            + Add
+          </button>
+        </div>
+        <div class="pizza-item" data-name="Kids Combo" data-price="13">
+          <img src="images/imageskidsburgerfries.jpg" alt="Kids Combo Meal" />
+          <h2>Kids Combo</h2>
+          <p>Kids chicken tenders, small burgers, and crispy fries.</p>
+          <p class="price">$13</p>
+          <button
+            class="add-overlay"
+            onclick="addToCart('Kids Combo', 13, 'images/imageskidsburgerfries.jpg')"
+          >
+            + Add
+          </button>
+        </div>
+        <!-- Build Your Own Pizza -->
+        <div
+          class="pizza-item"
+          data-name="Build Your Own Pizza"
+          data-price="20"
+        >
+          <div class="add-overlay">+ Add</div>
+          <img src="images/crisp_image.jpg" alt="Build Your Own Pizza" />
+          <h2>Build Your Own Pizza</h2>
+          <p>
+            Choose your crust, sauce, and toppings to create your perfect pizza.
+          </p>
+          <label for="crust">Crust:</label>
+          <select id="crust" name="crust">
+            <option value="Thin">Thin Crust</option>
+            <option value="Thick">Thick Crust</option>
+            <option value="Cauliflower">Cauliflower Crust</option>
+            <option value="Gluten_free">Gluten-Free Crust</option>
+          </select>
+          <label for="toppings">Toppings:</label>
+          <select id="toppings" name="toppings" multiple>
+            <option value="Pepperoni">Pepperoni</option>
+            <option value="Mushrooms">Mushrooms</option>
+            <option value="Olives">Olives</option>
+            <option value="Pineapple">Pineapple</option>
+            <option value="Sausage">Sausage</option>
+            <option value="Pesto">Pesto</option>
+          </select>
+          <button class="add-custom-pizza" onclick="addCustomPizzaToCart(20)">
+            Add Custom Pizza
+          </button>
+        </div>
+      </div>
+    </section>
 
+    <!-- Desserts Section -->
+    <section id="desserts" class="section">
+      <div class="section-header">
+        <h2>Delicious Desserts</h2>
+        <p>The perfect sweet ending to your meal.</p>
+      </div>
+      <div class="dessert-grid">
+        <div class="dessert-item" data-name="Apple Crisp" data-price="8">
+          <img src="images/images.crisp.jpg" alt="Apple Crisp w/ Ice Cream" />
+          <h2>Apple Crisp</h2>
+          <p>Apple Crisp with French vanilla ice cream.</p>
+          <p class="price">$8</p>
+          <button
+            class="add-overlay"
+            onclick="addToCart('Apple Crisp', 8, 'images/images.crisp.jpg')"
+          >
+            + Add
+          </button>
+        </div>
+        <div class="dessert-item" data-name="Fruit Tart" data-price="8">
+          <img src="images/images.tart.jpg" alt="Fruit Tart" />
+          <h2>Fruit Tart</h2>
+          <p>
+            Classic fruit tart with cinnamon, fresh fruit and powdered sugar.
+          </p>
+          <p class="price">$8</p>
+          <button
+            class="add-overlay"
+            onclick="addToCart('Fruit Tart', 8, 'images/images.tart.jpg')"
+          >
+            + Add
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Joy - A Taste of Italy. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script src="dist/cart.bundle.js"></script>
+    <script src="dist/navBar.bundle.js"></script>
+  </body>
 </html>

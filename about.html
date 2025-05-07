@@ -1,189 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Joy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us - Joy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;700&family=Lora:wght@400;700&display=swap"
-    rel="stylesheet" />
-  
-  <style>
-    /* General Styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+  <body>
+    <!-- Navbar will be injected here by components/navBar/navBar.js -->
 
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Navigation Styles */
-    nav {
-      background-color: #333;
-      padding: 15px 0;
-      width: 100%;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px; /* Center the navigation */
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links li {
-      margin: 0;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    .nav-links a:hover {
-      color: #f4a261;
-    }
-
-    /* Hero Section */
-    .hero {
-      background-image: url('images_rest.jpg'); /* Add your image path here */
-      background-size: cover;
-      background-position: center;
-      color: white;
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    .hero-content h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-
-    .hero-content p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-
-    /* About Section */
-    .section {
-      padding: 50px;
-      text-align: center;
-    }
-
-    .section-header h2 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    .section-header p {
-      font-size: 1.2em;
-      margin-top: 0;
-    }
-
-    .about-content {
-      font-size: 1.2em;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
-      padding-top: 20px;
-      color: #555;
-    }
-
-    /* Image styling */
-    .about-image {
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #333;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 1em;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <!-- Navigation Bar -->
-    <nav>
-      <div class="nav-container">
-        <h1><a href="index.html" class="logo">Joy</a></h1>
-        <ul class="nav-links">
-          <li><a href="https://everything1992.github.io/joyrest/index.html">Home</a></li>
-          <li><a href="https://everything1992.github.io/joyrest/menu.html">Menu</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- Hero Section with Link -->
-    <div class="hero">
+    <!-- Hero Section -->
+    <section class="hero">
       <div class="hero-content">
-        <h1>Welcome to Joy</h1>
-        <p>A Taste of Italy, Right in Your Neighborhood</p>
+        <h1>About Joy</h1>
+        <p>Discover the heart behind our kitchen.</p>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="section-header">
-      <h2>About Us</h2>
-      <p>Discover the story behind Joy</p>
-    </div>
-    <div class="about-content">
-      <p>At Joy, we believe that food brings people together. Our restaurant was born out of a passion for authentic Italian cuisine and a desire to share that joy with everyone.</p>
-      <p>Founded in 2025, we aim to offer the finest pizzas and pastas, made with fresh, locally sourced ingredients. From our classic Pepperoni pizza to our unique house specialties, every dish is carefully crafted with love and dedication.</p>
-      <p>Whether you're here for a family dinner or a special occasion, we guarantee that each bite will transport you straight to Italy.</p>
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2>About Us</h2>
+        <p>Discover the story behind Joy</p>
+      </div>
+      <div class="about-content">
+        <p>
+          At Joy, we believe that food brings people together. Our restaurant
+          was born out of a passion for authentic Italian cuisine and a desire
+          to share that joy with everyone.
+        </p>
+        <p>
+          Founded in 2025, we aim to offer the finest pizzas and pastas, made
+          with fresh, locally sourced ingredients. From our classic Pepperoni
+          pizza to our unique house specialties, every dish is carefully crafted
+          with love and dedication.
+        </p>
+        <p>
+          Whether you're here for a family dinner or a special occasion, we
+          guarantee that each bite will transport you straight to Italy.
+        </p>
 
-      <!-- Insert image here -->
-      <a href="images_rest.jpg" target="_blank">
-        <img src="images_rest.jpg" alt="Restaurant interior" class="about-image" />
-      </a>
-    </div>
-  </section>
+        <!-- Insert image here -->
+        <img
+          src="images/images_rest.jpg"
+          alt="Restaurant interior"
+          class="about-image"
+        />
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Joy - A Taste of Italy. All rights reserved.</p>
-  </footer>
-
-
-</body>
-
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Joy - A Taste of Italy. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+    <script src="components/navBar/navBar.js"></script>
+  </body>
 </html>
